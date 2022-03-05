@@ -102,11 +102,11 @@ function Bai2(props) {
             Xác nhận
           </Button>
         </div>
-        {isSubmitSuccessful ?? (
+        {!!isSubmitSuccessful ? (
           <div className={classes.results}>
             <h3>{`Kết quả là ${result}`}</h3>
           </div>
-        )}
+        ) : null}
       </form>
     </div>
   );
