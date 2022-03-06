@@ -60,6 +60,7 @@ function Bai1(props) {
   });
   const onSubmit = (value = {}) => {
     setDay(value.bai1);
+    // Tính số tiền công bằng số ngày công*100000
     setMoney(Number(value.bai1) * 100000);
   };
   return (
@@ -88,6 +89,7 @@ function Bai1(props) {
         {!!day && (
           <div className={classes.results}>
             <h2>{`Số ngày công: ${day}`}</h2>
+            {/* Format tiền vietj nam đồng */}
             <h2>{`Số tiền: ${new Intl.NumberFormat("vi-VN", {
               style: "currency",
               currency: "VND",
