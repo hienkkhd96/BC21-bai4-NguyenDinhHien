@@ -48,17 +48,16 @@ function Bai5(props) {
     .object({
       number1: yup
         .number()
-        .integer()
+        .integer("Vui lòng nhập 1 nguyên hợp lệ")
         .required()
-        .typeError("Vui lòng nhập 1 nguyên hợp lệ")
-        .min(0, "Vui lòng nhập số lớn hơn 0"),
+        .positive("Vui lòng nhập số lớn hơn 0")
+        .typeError("Vui lòng nhập 1 nguyên hợp lệ"),
     })
     .required();
   const [result, setResult] = useState(0);
   const {
     register,
     handleSubmit,
-    isSubmitSuccessful,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -88,12 +87,8 @@ function Bai5(props) {
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
         <TextField
-          type="number"
           error={!!errors.number1?.message}
-          {...register("number1", {
-            min: 0,
-            message: "Vui lòng nhập số lớn hơn 0",
-          })}
+          {...register("number1")}
           label="Nhập số"
           helperText={errors.number1?.message}
         />
@@ -103,7 +98,7 @@ function Bai5(props) {
             Xác nhận
           </Button>
         </div>
-        {isSubmitSuccessful ?? (
+        {!!result && (
           <div className={classes.results}>
             <h2>{`Tổng ký số: ${result}`}</h2>
           </div>

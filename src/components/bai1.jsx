@@ -54,7 +54,6 @@ function Bai1(props) {
   const {
     register,
     handleSubmit,
-    isSubmitSuccessful,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -86,7 +85,7 @@ function Bai1(props) {
             Xác nhận
           </Button>
         </div>
-        {isSubmitSuccessful ?? (
+        {!!day && (
           <div className={classes.results}>
             <h2>{`Số ngày công: ${day}`}</h2>
             <h2>{`Số tiền: ${new Intl.NumberFormat("vi-VN", {

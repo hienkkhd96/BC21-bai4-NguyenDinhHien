@@ -42,10 +42,12 @@ function Bai4(props) {
       lengthHcn: yup
         .number()
         .required()
+        .positive("Vui lòng nhập số lớn hơn 0")
         .typeError("Vui lòng nhập chiều dài hợp lệ"),
       widthHcn: yup
         .number()
         .required()
+        .positive("Vui lòng nhập số lớn hơn 0")
         .typeError("Vui lòng nhập chiều rộng hợp lệ"),
     })
     .required();
@@ -54,7 +56,6 @@ function Bai4(props) {
     register,
     handleSubmit,
     formState: { errors },
-    isSubmitSuccessful,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -80,6 +81,7 @@ function Bai4(props) {
           {...register("lengthHcn")}
           label="Chiều dài HCN"
           type="text"
+          error={!!errors.lengthHcn?.message}
           helperText={errors.lengthHcn?.message}
         />
         <TextField
@@ -87,6 +89,7 @@ function Bai4(props) {
           {...register("widthHcn")}
           label="Chiều rộng HCN"
           type="text"
+          error={!!errors.widthHcn?.message}
           helperText={errors.widthHcn?.message}
         />
         <div className={classes.button}>
@@ -94,7 +97,7 @@ function Bai4(props) {
             Xác nhận
           </Button>
         </div>
-        {isSubmitSuccessful ?? (
+        {!!(perimeter && acreage) && (
           <div className={classes.results}>
             <h3>{`Chu vi là ${perimeter}`}</h3>
             <h3>{`Diện tích là ${acreage}`}</h3>
