@@ -4,6 +4,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+// B1:Lấy chiều dài và chiều rộng người dùng nhập vào form
+// B2: Tính chu vi bằng chiều dài cộng chiều rộng nhân 2
+// B3: Tính diện tích bằng chiều dài nhân chiều rộng
+// B4 Xuất ra màn hình kết quả
+
 const theme = createTheme();
 const useStyles = makeStyles({
   root: {},

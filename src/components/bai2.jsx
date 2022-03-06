@@ -4,6 +4,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+// B1 lấy 5 số người dùng nhập vào form
+// B2 Tính tổng 5 số
+// B3 Lấy tổng 5 số chia 5 để được giá tri trung bình
+// B4 Xuất ra màn hình kết quả
+
 const theme = createTheme();
 const useStyles = makeStyles({
   root: {},
@@ -45,7 +50,6 @@ function Bai2(props) {
   const {
     register,
     handleSubmit,
-    isSubmitSuccessful,
     getValues,
     formState: { errors },
   } = useForm({
@@ -75,26 +79,31 @@ function Bai2(props) {
         <TextField
           {...register("so1")}
           label="Số thứ nhất"
+          error={!!errors.so1?.message}
           helperText={errors.so1?.message}
         />
         <TextField
           {...register("so2")}
           label="Số thứ hai"
+          error={!!errors.so2?.message}
           helperText={errors.so2?.message}
         />
         <TextField
           {...register("so3")}
           label="Số thứ ba"
+          error={!!errors.so3?.message}
           helperText={errors.so3?.message}
         />
         <TextField
           {...register("so4")}
           label="Số thứ tư"
+          error={!!errors.so4?.message}
           helperText={errors.so4?.message}
         />
         <TextField
           {...register("so5")}
           label="Số thứ năm"
+          error={!!errors.so5?.message}
           helperText={errors.so5?.message}
         />
         <div className={classes.button}>
@@ -102,7 +111,7 @@ function Bai2(props) {
             Xác nhận
           </Button>
         </div>
-        {!!isSubmitSuccessful ? (
+        {Boolean(typeof result === "number") ? (
           <div className={classes.results}>
             <h3>{`Kết quả là ${result}`}</h3>
           </div>

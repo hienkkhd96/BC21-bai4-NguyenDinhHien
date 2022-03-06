@@ -4,6 +4,14 @@ import { useForm } from "react-hook-form";
 import { makeStyles } from "@mui/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+// BÀI CÓ NHIỀU CÁCH LÀM: DÙNG VÒNG LẶP,ĐỆ QUY, TÁCH THÀNH MẢNG RỒI DÙNG REDUCER
+// Đề bài chỉ yêu cầu số có 2 chữ số nhưng em làm số nhiều hơn 2 chữ số cũng dùng được
+// Em dùng đệ quy để chia lấy dư cho 10
+
+// B1 Lấy số người dùng nhập vào form
+// B2 Dùng đệ quy lăp lại hàm getResult(): Hàm getResult thực hiện chia lấy dư cho 10 và gán cho giá trị after
+// B3 Xuất ra màn hình kết quả
+
 const theme = createTheme();
 const useStyles = makeStyles({
   root: {},

@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { makeStyles } from "@mui/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+// B1 Lấy số USD người dùng nhập vào form
+// B2 Quy đổi sang VND theo tỉ giá cho trước: 23500
+// B3 Xuất ra màn hình kết quả
 
 const theme = createTheme();
 const useStyles = makeStyles({

@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import { makeStyles } from "@mui/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+// B1 Lấy số ngày công người dùng nhập vào form
+// B2 Tính số tiền bằng số ngày công nhân 100000
+// B3 Xuất ra màn hình kết quả
+
 const theme = createTheme();
 const useStyles = makeStyles({
   root: {},
@@ -77,7 +81,6 @@ function Bai1(props) {
           label="Số ngày công"
           helperText={errors.bai1?.message}
         />
-
         <div className={classes.button}>
           <Button type="submit" variant="contained" onClick={handleSubmit}>
             Xác nhận
