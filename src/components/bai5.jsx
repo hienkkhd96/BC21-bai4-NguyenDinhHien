@@ -48,7 +48,7 @@ function Bai5(props) {
     .object({
       number1: yup
         .number()
-        .integer("Vui lòng nhập 1 nguyên hợp lệ")
+        .integer("Vui lòng nhập 1 số nguyên hợp lệ")
         .required()
         .positive("Vui lòng nhập số lớn hơn 0")
         .typeError("Vui lòng nhập 1 nguyên hợp lệ"),
@@ -65,8 +65,8 @@ function Bai5(props) {
   function getResult(number, after) {
     if (number > 0) {
       after = Math.floor(number % 10) + after;
-      setResult(after);
       number = Math.floor(number / 10);
+      setResult(after);
       getResult(number, after);
     }
     return after;
